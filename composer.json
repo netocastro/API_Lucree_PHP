@@ -1,0 +1,27 @@
+{
+    "name": "neto-pc/api_lucre",
+    "description": "API feita baseado no desafio da lucree",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Source\\": "src/"
+        },
+        "files": [
+            "src/Core/Config.php",
+            "src/Core/Functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Aureliano",
+            "email": "netocastrotec@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "league/plates" : "v4.0.0-alpha",
+        "stonks/router": "1.0.*",
+        "stonks/datalayer": "1.0.*"
+    }
+}
