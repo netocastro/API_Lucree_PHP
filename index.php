@@ -46,16 +46,16 @@ $route->delete("/friends/{id}", "UserFriend:delete", "delete.friends");
  */
 
 $route->get("/transfers", "Transfer:index", "index.transfers");
-$route->get("/transfers/{id}", "Transfer:show", "show.transfers");
-$route->post("/transfers", "Transfer:store", "store.transfers");
-$route->put("/transfers/{id}", "Transfer:update", "put.transfers");
-$route->delete("/transfers/{id}", "Transfer:delete", "delete.transfers");
+$route->get("/transfer/{id}", "Transfer:show", "show.transfers");
+$route->post("/transfer", "Transfer:store", "store.transfers");
+$route->put("/transfer/{id}", "Transfer:update", "put.transfers");
+$route->delete("/transfer/{id}", "Transfer:delete", "delete.transfers");
 
 /**
  * Rotas de bankstatements
  */
 
-$route->get("/bank-statement", "Bankstatement:index", "index.bankstatements");
+$route->get("/bank-statements", "Bankstatement:index", "index.bankstatements");
 $route->get("/bank-statement/{id}", "Bankstatement:show", "show.bankstatements");
 $route->post("/bank-statement", "Bankstatement:store", "store.bankstatements");
 $route->put("/bank-statement/{id}", "Bankstatement:update", "put.bankstatements");

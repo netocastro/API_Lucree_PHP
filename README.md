@@ -17,13 +17,13 @@ Ao instalar o XAMPP clonar o repositorio dentro da pasta htdocs.
 
 
 
-# Usuários (person)
+# Users (person)
 
 ### GET `/account/persons` 
-Esse método retorna todos os usuarios registrados.
+Esse método retorna todos os usuários registrados.
 
 ### GET `/account/person/{id}` 
-Esse método retorna todos um usuário específico atraves do id.
+Esse método retorna um usuário específico através do id.
 
 ### POST `/account/person` 
 Esse método deve receber um novo usuário e o insere no banco de dados para ser consumido pela própria API.
@@ -35,226 +35,73 @@ Esse método atualiza um usuário específico baseado no seu ID.
 Esse método deleta um usuário específico baseado no seu ID.
 
 
+# Cards
+
+### GET `/account/cards` 
+Esse método retorna todos os cartão registrados.
+
+### GET `/account/card/{id}` 
+Esse método retorna um cartão específico através do id.
+
+### POST `/account/card` 
+Esse método deve receber um novo cartão e o insere no banco de dados para ser consumido pela própria API.
+
+### PUT `/account/card/{id}` 
+Esse método atualiza um cartão específico baseado no seu ID.
+
+### DELETE `/account/card/{id}` 
+Esse método deleta um cartão específico baseado no seu ID.
 
 
+# Friends
+
+### GET `/account/friends` 
+Esse método retorna todos os usuários que possuem amigos registrados.
+
+### GET `/account/friend/{id}` 
+Esse método retorna a lista de amigos de um usuário específico através do id.
+
+### POST `/account/friend` 
+Esse método deve receber dois usuários e os cadastra como amigos.
+
+### PUT `/account/friend/{id}` 
+Esse método atualiza um arelação de amizade entre dois clientes através do id.
+
+### DELETE `/account/friend/{id}` 
+Esse método deleta um vinculode amizade entre usuários através do id.
 
 
+# Transfers
+
+### GET `/account/transfers` 
+Esse método retorna todas as transferências registradas.
+
+### GET `/account/transfer/{id}` 
+Esse método retorna uam transferência específica através do id.
+
+### POST `/account/transfer` 
+Esse método registra uma transferência no banco e dados.
+
+### PUT `/account/transfer/{id}` 
+Esse método atualiza informações sobre uma determinada transferências através do id.
+
+### DELETE `/account/transfer/{id}` 
+Esse método deleta uma determinada transferência através do id.
 
 
-### GET `/account/friends`
-Esse método da API deve retornar o seguinte JSON com os amigos do usuário
-```json
-[
-  {
-   "first_name":"João",
-   "last_name": "das Neves",
-   "birthday": "1991-09-91",
-   "username": "joao_das_neves",
-   "user_id": "70c881d4a26984ddce795f6f71817c9cf4480e79"
-  },
-  {
-   "first_name":"João",
-   "last_name": "das Neves",
-   "birthday": "1991-09-91",
-   "username": "joao_das_neves",
-   "user_id": "70c881d4a26984ddce795f6f71817c9cf4480e79"
-  },
-  {
-   "first_name":"João",
-   "last_name": "das Neves",
-   "birthday": "1991-09-91",
-   "username": "joao_das_neves",
-   "user_id": "70c881d4a26984ddce795f6f71817c9cf4480e79"
-  }
-]
-```
+# Bank-statement
 
-| Campo       | Tipo   |
-|-------------|--------|
-| first_name  | String |
-| last_name   | String |
-| birthday    | String |
-| username    | String |
+### GET `/account/bank-statements` 
+Esse método retorna todos os extratos bancários registradas.
 
-### POST `/account/card`
-Esse método deve receber um cartão novo e inseri-lo em um banco de dados para ser consumido pela própria API.
-```json
-{
-   "card_id": "70c881d4a26984ddce795f6f71817c9cf4480e79"
-   "title": "Cartão 1",
-   "pan": "5527952393064634",
-   "expiry_mm": "03",
-   "expiry_yyyy": "2022",
-   "security_code": "656",
-   "date":"26/11/2015"
-}
-```
-| Campo       | Tipo   |
-|-------------|--------|
-| title       | String |
-| pan         | String |
-| expiry_mm   | String |
-| expiry_yyy  | String |
-| security_code | String |
-| date        | String |
+### GET `/account/bank-statement/{id}` 
+Esse método retorna o extrato bancário de um unico usuário registrado através do id.
 
+### POST `/account/bank-statement` 
+Esse método registra um novo extrato bancário.
 
-### GET `/account/cards`
-Esse método da API deve retornar o seguinte JSON com os cartões cadastrados pelo usuário
-```json
-[
-  {
-    "title":"Cartão 1",
-    "pan": "5527952393064634",
-    "expiry_mm": "03",
-    "expiry_yyyy": "2022",
-    "security_code": "656",
-    "date":"26/11/2015"
-  },
-  {
-     "title":"Cartão 2",
-     "pan": "5527952393064634",
-     "expiry_mm": "03",
-     "expiry_yyyy": "2022",
-     "security_code": "656",
-     "date":"26/11/2015"
-  },
-  {
-     "title":"Cartão 2",
-     "pan": "5527952393064634",
-     "expiry_mm": "03",
-     "expiry_yyyy": "2022",
-     "security_code": "656",
-     "date":"26/11/2015"
-  }
-]
-```
+### PUT `/account/bank-statement/{id}` 
+Esse método atualiza informações sobre um determinado extrato bancário através do id.
 
-| Campo       | Tipo   |
-|-------------|--------|
-| title       | String |
-| pan         | String |
-| expiry_mm   | String |
-| expiry_yyy  | String |
-| security_code | String |
-| date        | String |
-
-
-
-Após o usuário adicionar todos os cartões e localizar seus amigos, ele poderá realizar uma transferência.
-Para isso, você precisará fazer o método `transfer` na sua API.
-
-### POST `/account/transfer`
-Esse método irá receber os dados da compra, junto com os dados do usuário.
-```json
-{
-   "friend_id": "70c881d4a26984ddce795f6f71817c9cf4480e79",
-   "total_to_transfer": 100,
-   "billing_card": {
-      "card_id": "70c881d4a26984ddce795f6f71817c9cf4480e79"
-   }
-}
-
-```
-
-+ Transfer
-
-| Campo        | Tipo       |
-|--------------|------------|
-| friend_id    | String     |
-| total_to_pay | int (in cents)|
-| billing_card  | CreditCard |
-
-+ BillingCard
-
-| Campo            | Tipo   |
-|------------------|--------|
-| card_id          | String |
-
-
-### GET `/account/bank-statement`
-Esse método deve retornar todas as transferencias realizadas entre os amigos na API
-```json
-[
-   {
-      "user_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "friend_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "value":1234,
-      "date":"19/08/2016",
-      "from_card":"70c881d4a26984ddce795f6f71817c9cf4480e79"
-   },
-   {
-      "user_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "friend_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "value":1234,
-      "date":"19/08/2016",
-      "from_card":"70c881d4a26984ddce795f6f71817c9cf4480e79"
-   },
-   {
-      "user_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "friend_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "value":1234,
-      "date":"19/08/2016",
-      "from_card":"70c881d4a26984ddce795f6f71817c9cf4480e79"
-   },
-]
-```
-| Campo            | Tipo   |
-|------------------|--------|
-| user_id          | String |
-| friend_id        | String |
-| value            | int (in cents)    |
-| date             | String |
-| from_card        | String |
-
-### GET `/account/bank-statement/{usertId}`
-Esse método deve retornar todos as transferencias realizadas na API por um usuário específico
-```json
-[
-   {
-      "user_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "friend_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "value":1234,
-      "date":"19/08/2016",
-      "from_card":"70c881d4a26984ddce795f6f71817c9cf4480e79"
-   },
-   {
-      "user_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "friend_id":"70c881d4a26984ddce795f6f71817c9cf4480e79",
-      "value":1234,
-      "date":"19/08/2016",
-      "from_card":"70c881d4a26984ddce795f6f71817c9cf4480e79"
-   },
-]
-```
-
-
-
-
----
-#### LICENSE
-```
-MIT License
-
-Copyright (c) 2020 Lucree Soluções Inteligentes.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-
+### DELETE `/account/bank-statement/{id}` 
+Esse método deleta um determinado extrato bancário através do id.
