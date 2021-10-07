@@ -1,8 +1,5 @@
 <?php
 
-
-
-use Source\Models\BankStatements;
 use Stonks\Router\Router;
 
 require_once __DIR__ . "/vendor/autoload.php";
@@ -10,19 +7,6 @@ require_once __DIR__ . "/vendor/autoload.php";
 $route = new Router(BASE_PATH);
 
 $route->group(null);
-
-$route->get('/', function () {
-    /*  echo "<h1>Home</h1>";
-      echo "<pre>";
-      print_r($route);
-      echo "</pre>";*/
-});
-
-$route->get('/teste', function () {
-      echo "<h1>Teste</h1>";
-      var_dump((new BankStatements())->find()->fetch(true));
-});
-
 
 $route->namespace("Source\Controllers\API");
 
