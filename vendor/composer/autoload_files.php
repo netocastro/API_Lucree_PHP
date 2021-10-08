@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    '6e3fae29631ef280660b3cdad06f25a8' => $vendorDir . '/symfony/deprecation-contracts/function.php',
+    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
+    'a4a119a56e50fbb293281d9a48007e0e' => $vendorDir . '/symfony/polyfill-php80/bootstrap.php',
     'e471bf351add62873bc0289ccd6a937f' => $vendorDir . '/league/plates/src/Template/match.php',
     '152c98af9456eeb8f53697d6a7dfd689' => $vendorDir . '/league/plates/src/Extension/Data/data.php',
     'e20239a76b73b9912f51f0005956d1db' => $vendorDir . '/league/plates/src/Extension/Path/path.php',
@@ -14,6 +17,7 @@ return array(
     'bdc465a053da7f7ddb072631f6d41d45' => $vendorDir . '/league/plates/src/Extension/LayoutSections/layout-sections.php',
     'afa76803f24616d7599be3b7b0846adc' => $vendorDir . '/league/plates/src/Extension/Folders/folders.php',
     '16c5be35e32c6cf916d875518b909210' => $vendorDir . '/league/plates/src/Util/util.php',
+    '0ccdf99b8f62f02c52cba55802e0c2e7' => $vendorDir . '/zircote/swagger-php/src/functions.php',
     '8c9f96a0cb12bebd5b682d7c4c0b8ad2' => $baseDir . '/src/Core/Config.php',
     '1f023f335cd97c663f8217487650ecb1' => $baseDir . '/src/Core/Functions.php',
 );
